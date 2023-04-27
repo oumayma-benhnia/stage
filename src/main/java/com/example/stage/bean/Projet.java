@@ -1,10 +1,11 @@
 package com.example.stage.bean;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Projet {
+    @Id     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     private String nomProjet ;
     private  String type ;
@@ -13,18 +14,12 @@ public class Projet {
     private Date dateDebut ;
     private Date dateFin ;
     private Date dateEstime ;
-    private ProjetResource resource ;
+    @ManyToOne
+    private ProjetRessource ressource ;
+    @ManyToOne
     private Client client ;
+    @ManyToOne
     private ChefProjet chefProjet ;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNomProjet() {
         return nomProjet;
     }
@@ -81,12 +76,13 @@ public class Projet {
         this.dateEstime = dateEstime;
     }
 
-    public ProjetResource getResource() {
-        return resource;
+
+    public ProjetRessource getRessource() {
+        return ressource;
     }
 
-    public void setResource(ProjetResource resource) {
-        this.resource = resource;
+    public void setRessource(ProjetRessource ressource) {
+        this.ressource = ressource;
     }
 
     public Client getClient() {
@@ -104,4 +100,13 @@ public class Projet {
     public void setChefProjet(ChefProjet chefProjet) {
         this.chefProjet = chefProjet;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
+
