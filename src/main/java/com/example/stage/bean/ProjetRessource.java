@@ -1,4 +1,4 @@
 package com.example.stage.bean;
 
-public class Remarque {
+public class ProjetRessource {
 }
