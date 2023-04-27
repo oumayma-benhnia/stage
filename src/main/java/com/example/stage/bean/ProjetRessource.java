@@ -12,7 +12,7 @@ public class ProjetRessource {
     @ManyToOne
     private Projet projet;
     @ManyToMany
-    private List<Ressource> ressource;
+    private List<Ressource> ressources;
 
     public Long getId() {
         return id;
@@ -47,10 +47,10 @@ public class ProjetRessource {
     }
 
     public List<Ressource> getRessource() {
-        return ressource;
+        return ressources;
     }
 
-    public void setRessource(List<Ressource> ressource) {
-        this.ressource = ressource;
+    public void setRessource(List<Ressource> ressources) {
+        this.ressources = ressources;
     }
 }
