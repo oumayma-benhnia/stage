@@ -2,6 +2,8 @@ package com.example.stage.bean;
 
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +13,10 @@ import java.util.Date;
 @Entity
 public class Remarque {
     @Id     @GeneratedValue(strategy = GenerationType.AUTO)
-private Long id ;
-private Date dateTime ;
-private String remarque ;
+    private Long id ;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
+    private Date dateTime ;
+    private String remarque ;
 
     public Long getId() {
         return id;

@@ -1,25 +1,50 @@
 package com.example.stage.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Projet {
-    @Id     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     private String nomProjet ;
     private  String type ;
     private double budget ;
     private String statut ;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date dateDebut ;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date dateFin ;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date dateEstime ;
-    @ManyToOne
-    private ProjetRessource ressource ;
+
+    @ManyToMany
+    private List<ProjetRessource> projetRessources;
     @ManyToOne
     private Client client ;
+
+    public List<ProjetRessource> getProjetRessources() {
+        return projetRessources;
+    }
+
+    public void setProjetRessources(List<ProjetRessource> projetRessources) {
+        this.projetRessources = projetRessources;
+    }
+
     @ManyToOne
     private ChefProjet chefProjet ;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNomProjet() {
         return nomProjet;
     }
@@ -77,13 +102,6 @@ public class Projet {
     }
 
 
-    public ProjetRessource getRessource() {
-        return ressource;
-    }
-
-    public void setRessource(ProjetRessource ressource) {
-        this.ressource = ressource;
-    }
 
     public Client getClient() {
         return client;
@@ -100,13 +118,4 @@ public class Projet {
     public void setChefProjet(ChefProjet chefProjet) {
         this.chefProjet = chefProjet;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }
-

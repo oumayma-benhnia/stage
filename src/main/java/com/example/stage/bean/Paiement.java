@@ -1,6 +1,8 @@
 package com.example.stage.bean;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,8 +12,9 @@ public class Paiement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String moyen ;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date datePaiement ;
-@ManyToOne
+    @ManyToOne
     private Facture facture ;
 
     public Long getId() {

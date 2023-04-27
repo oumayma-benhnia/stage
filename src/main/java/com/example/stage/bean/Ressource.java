@@ -1,6 +1,8 @@
 package com.example.stage.bean;
 
-import jakarta.persistence.*;
+
+
+import javax.persistence.*;
 
 @Entity
 public class Ressource {

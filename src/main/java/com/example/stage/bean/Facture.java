@@ -1,5 +1,7 @@
 package com.example.stage.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,7 +13,9 @@ public class Facture {
     private String libelle ;
     private String reference ;
     private double montant ;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date dateEmission ;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date dateEcheance ;
     @ManyToOne
     private  Comptable comptable ;

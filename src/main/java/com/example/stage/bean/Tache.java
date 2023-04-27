@@ -1,7 +1,10 @@
 package com.example.stage.bean;
 
-import jakarta.persistence.*;
 
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -10,8 +13,11 @@ public class Tache {
     private Long idTache;
     private String nom;
     private String description;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date date_debut;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date date_fin;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private Date duree;
     @ManyToOne
     private Collaborateur collaborateur;
