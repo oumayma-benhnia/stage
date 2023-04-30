@@ -14,12 +14,12 @@ public class RemaqueService {
     @Autowired
     private RemarqueDao remarqueDao;
 
-    public Remarque findByProjets(Projet projet) {
-        return remarqueDao.findByProjets(projet);
+    public Remarque findByRemarque(String remarque) {
+        return remarqueDao.findByRemarque(remarque);
     }
 @Transactional
-    public int deleteByProjets(Projet projet) {
-        return remarqueDao.deleteByProjets(projet);
+    public int deleteByRemarque(String remarque) {
+        return remarqueDao.deleteByRemarque(remarque);
     }
 
     public List<Remarque> findAll() {

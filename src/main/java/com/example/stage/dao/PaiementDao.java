@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PaiementDao extends JpaRepository<Paiement ,Long> {
 Paiement findByFacture(Facture facture);
-int deleteByFacture(Facture facture );
+int deleteByFacture(Facture facture);
 
 
 
