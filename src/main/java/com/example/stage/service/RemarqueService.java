@@ -1,6 +1,5 @@
 package com.example.stage.service;
 
-import com.example.stage.bean.Projet;
 import com.example.stage.bean.Remarque;
 import com.example.stage.dao.RemarqueDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class RemaqueService {
+public class RemarqueService {
     @Autowired
     private RemarqueDao remarqueDao;
 

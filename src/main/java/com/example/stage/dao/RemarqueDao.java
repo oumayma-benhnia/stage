@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface RemarqueDao extends JpaRepository<Remarque,Long > {
-Remarque findByRemarque (String remaruqe);
+Remarque findByRemarque (String remarque);
 int deleteByRemarque (String remarque);
 
 

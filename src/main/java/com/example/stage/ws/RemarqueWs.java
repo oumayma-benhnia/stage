@@ -1,8 +1,8 @@
 package com.example.stage.ws;
 
-import com.example.stage.bean.Client;
-import com.example.stage.bean.Projet;
-import com.example.stage.service.RemaqueService;
+import com.example.stage.bean.Facture;
+import com.example.stage.bean.Remarque;
+import com.example.stage.service.RemarqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +12,17 @@ import java.util.List;
 @RequestMapping("/api/v1/remarque")
 public class RemarqueWs {
     @Autowired
-    private RemaqueService remaqueService;
-
+    private RemarqueService remarqueService;
+    @GetMapping("/remarque/{remarque}")
+    public Remarque findByRemarque(@PathVariable String remarque) {
+        return remarqueService.findByRemarque(remarque);
+    }
+    @DeleteMapping("/remarque/{remarque}")
+    public int deleteByRemarque(@PathVariable String remarque) {
+        return remarqueService.deleteByRemarque(remarque);
+    }
+    @GetMapping("/")
+    public List<Remarque> findAll() {
+        return remarqueService.findAll();
+    }
 }
