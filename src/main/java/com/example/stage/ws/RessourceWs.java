@@ -1,7 +1,9 @@
 package com.example.stage.ws;
 
-import com.example.stage.bean.Remarque;
-import com.example.stage.service.RemarqueService;
+
+import com.example.stage.bean.Ressource;
+
+import com.example.stage.service.RessourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,26 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/remarque")
+@RequestMapping("/api/v1/ressource")
 public class RessourceWs {
     @Autowired
-    private RemarqueService remarqueService;
+    private RessourceService ressourceService;
 
-    @GetMapping("/remarque/{remarque}")
-    public Remarque findByRemarque(String remarque) {
-        return remarqueService.findByRemarque(remarque);
+    @GetMapping("/type/{type}")
+    public Ressource findByType(String type) {
+        return ressourceService.findByType(type);
     }
 
-    @DeleteMapping("/remarque/{remarque}")
-    public int deleteByRemarque(String remarque) {
-        return remarqueService.deleteByRemarque(remarque);
+    @DeleteMapping("/type/{type}")
+    public int deleteByType(String type) {
+        return ressourceService.deleteByType(type);
     }
 
     @GetMapping("/")
-    public List<Remarque> findAll() {
-        return remarqueService.findAll();
+    public List<Ressource> findAll() {
+        return ressourceService.findAll();
     }
 }
