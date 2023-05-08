@@ -25,6 +25,10 @@ public class ChefProjetWs {
     public List<ChefProjet> findAll() {
         return chefProjetService.findAll();
     }
+    @PostMapping("/")
+    public int save(@RequestBody ChefProjet chefProjet) {
+        return chefProjetService.save(chefProjet);
+    }
 
 
 

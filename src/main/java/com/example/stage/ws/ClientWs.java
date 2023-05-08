@@ -25,4 +25,8 @@ public class ClientWs {
     public List<Client> findAll() {
         return clientService.findAll();
     }
+    @PostMapping("/")
+    public int save(@RequestBody Client client) {
+        return clientService.save(client);
+    }
 }

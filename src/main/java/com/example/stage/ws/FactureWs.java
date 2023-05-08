@@ -24,5 +24,9 @@ public class FactureWs {
     public List<Facture> findAll() {
         return factureService.findAll();
     }
+    @PostMapping("/")
+    public int save(@RequestBody Facture facture) {
+        return factureService.save(facture);
+    }
 
 }

@@ -22,5 +22,9 @@ public class PaiementWs {
     @GetMapping("/")
     public List<Paiement> findAll() {
         return paiementService.findAll();
+    }*
+    @PostMapping("/")
+    public int save(@RequestBody Paiement paiement) {
+        return paiementService.save(paiement);
     }
 }

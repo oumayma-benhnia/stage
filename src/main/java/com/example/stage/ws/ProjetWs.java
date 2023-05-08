@@ -25,5 +25,9 @@ public class ProjetWs {
     public List<Projet> findAll() {
         return projetService.findAll();
     }
+    @PostMapping("/")
+    public int save(@RequestBody Projet projet) {
+        return projetService.save(projet);
+    }
 
 }

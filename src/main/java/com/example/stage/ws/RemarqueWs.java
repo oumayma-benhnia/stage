@@ -25,4 +25,8 @@ public class RemarqueWs {
     public List<Remarque> findAll() {
         return remarqueService.findAll();
     }
+    @PostMapping("/")
+    public int save(@RequestBody Remarque remarque) {
+        return remarqueService.save(remarque);
+    }
 }

@@ -5,10 +5,7 @@ import com.example.stage.bean.Ressource;
 
 import com.example.stage.service.RessourceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.transaction.Transactional;
@@ -33,5 +30,9 @@ public class RessourceWs {
     @GetMapping("/")
     public List<Ressource> findAll() {
         return ressourceService.findAll();
+    }
+    @PostMapping("/")
+    public int save(@RequestBody Ressource ressource) {
+        return ressourceService.save(ressource);
     }
 }
