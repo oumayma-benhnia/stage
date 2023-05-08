@@ -23,5 +23,14 @@ public List<Client> findAll(){
     return clientDao.findAll();
 }
 
+    public int save(Client client){
+        if (findByNom(client.getNom()) != null) {
+            return -1;
+        }else{
+            clientDao.save(client);
+            return 1;
+        }
+    }
+
 
 }

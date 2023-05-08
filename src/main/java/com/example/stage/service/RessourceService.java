@@ -25,4 +25,12 @@ public class RessourceService {
     public List<Ressource> findAll() {
         return ressourceDao.findAll();
     }
+    public int save(Ressource ressource){
+        if (findByType(ressource.getType()) != null) {
+            return -1;
+        }else{
+            ressourceDao.save(ressource);
+            return 1;
+        }
+    }
 }

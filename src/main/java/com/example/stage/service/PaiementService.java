@@ -24,4 +24,12 @@ public class PaiementService {
     public int deleteByFacture (Facture facture){
         return paiementDao.deleteByFacture(facture);
     }
+    public int save(Paiement paiement){
+        if (findByFacture(paiement.getFacture()) != null) {
+            return -1;
+        }else{
+            paiementDao.save(paiement);
+            return 1;
+        }
+    }
 }

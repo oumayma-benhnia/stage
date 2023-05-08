@@ -24,4 +24,12 @@ public class RemarqueService {
     public List<Remarque> findAll() {
         return remarqueDao.findAll();
     }
+    public int save(Remarque remarque){
+        if (findByRemarque(remarque.getRemarque()) != null) {
+            return -1;
+        }else{
+            remarqueDao.save(remarque);
+            return 1;
+        }
+    }
 }

@@ -23,4 +23,12 @@ public class FactureService {
     public int deleteByReference (String reference ){
         return factureDao.deleteByReference(reference);
     }
+    public int save(Facture facture){
+        if (findByReference(facture.getReference()) != null) {
+            return -1;
+        }else{
+           factureDao.save(facture);
+            return 1;
+        }
+    }
 }

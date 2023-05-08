@@ -22,5 +22,13 @@ public int deleteByNomProjet (String nomProjet){
 public List< Projet >findAll(){
     return projetDao.findAll();
 }
+    public int save(Projet projet){
+        if (findByNomProjet(projet.getNomProjet()) != null) {
+            return -1;
+        }else{
+           projetDao.save(projet);
+            return 1;
+        }
+    }
 
 }

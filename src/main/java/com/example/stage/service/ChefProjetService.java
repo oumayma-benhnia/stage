@@ -20,7 +20,14 @@ public class ChefProjetService {
   return chefProjetDao.deleteByNom(nom);
  }
  public List<ChefProjet> findAll(){ return chefProjetDao.findAll();}
-
+ public int save(ChefProjet chefProjet){
+  if (findByNom(chefProjet.getNom()) != null) {
+   return -1;
+  }else{
+   chefProjetDao.save(chefProjet);
+   return 1;
+  }
+ }
 
 
 
