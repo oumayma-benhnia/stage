@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RessourceService {
@@ -17,7 +18,6 @@ public class RessourceService {
         return ressourceDao.findByType(type);
     }
     @Transactional
-
     public int deleteByType(String type) {
         return ressourceDao.deleteByType(type);
     }
@@ -25,6 +25,16 @@ public class RessourceService {
     public List<Ressource> findAll() {
         return ressourceDao.findAll();
     }
+
+    public Optional<Ressource> findById(Long id) {
+        return ressourceDao.findById(id);
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        ressourceDao.deleteById(id);
+    }
+
     public int save(Ressource ressource){
         if (findByType(ressource.getType()) != null) {
             return -1;

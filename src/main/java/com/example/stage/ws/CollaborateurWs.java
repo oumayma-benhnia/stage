@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/collaborateur")
@@ -27,5 +28,21 @@ public class CollaborateurWs {
     @GetMapping("/")
     public List<Collaborateur> findAll() {
         return collaborateurService.findAll();
+    }
+
+    @GetMapping("/id/{id}")
+    public Optional<Collaborateur> findById(@PathVariable Long id) {
+        return collaborateurService.findById(id);
+    }
+
+    @DeleteMapping("/id/{id}")
+
+    public void deleteById(@PathVariable Long id) {
+        collaborateurService.deleteById(id);
+    }
+
+    @PostMapping("/")
+    public int save(@RequestBody Collaborateur collaborateur) {
+        return collaborateurService.save(collaborateur);
     }
 }
