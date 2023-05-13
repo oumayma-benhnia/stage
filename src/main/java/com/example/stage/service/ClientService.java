@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -23,6 +24,14 @@ public List<Client> findAll(){
     return clientDao.findAll();
 }
 
+    public Optional<Client> findById(Long id) {
+        return clientDao.findById(id);
+    }
+
+    public void deleteById(Long id) {
+        clientDao.deleteById(id);
+    }
+
     public int save(Client client){
         if (findByNom(client.getNom()) != null) {
             return -1;
@@ -30,6 +39,7 @@ public List<Client> findAll(){
             clientDao.save(client);
             return 1;
         }
+
     }
 
 

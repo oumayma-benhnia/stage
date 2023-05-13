@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProjetService {
@@ -31,4 +32,11 @@ public List< Projet >findAll(){
         }
     }
 
+    public Optional<Projet> findById(Long id) {
+        return projetDao.findById(id);
+    }
+
+    public void deleteById(Long id) {
+        projetDao.deleteById(id);
+    }
 }

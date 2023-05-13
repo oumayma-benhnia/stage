@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FactureService {
@@ -30,5 +31,13 @@ public class FactureService {
            factureDao.save(facture);
             return 1;
         }
+    }
+
+    public Optional<Facture> findById(Long id) {
+        return factureDao.findById(id);
+    }
+
+    public void deleteById(Long id) {
+        factureDao.deleteById(id);
     }
 }

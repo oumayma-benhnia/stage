@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PaiementService {
@@ -31,5 +32,13 @@ public class PaiementService {
             paiementDao.save(paiement);
             return 1;
         }
+    }
+
+    public Optional<Paiement> findById(Long id) {
+        return paiementDao.findById(id);
+    }
+
+    public void deleteById(Long id) {
+        paiementDao.deleteById(id);
     }
 }

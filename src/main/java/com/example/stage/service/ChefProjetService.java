@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChefProjetService {
@@ -20,6 +21,15 @@ public class ChefProjetService {
   return chefProjetDao.deleteByNom(nom);
  }
  public List<ChefProjet> findAll(){ return chefProjetDao.findAll();}
+
+ public Optional<ChefProjet> findById(Long id) {
+  return chefProjetDao.findById(id);
+ }
+
+ public void deleteById(Long id) {
+  chefProjetDao.deleteById(id);
+ }
+
  public int save(ChefProjet chefProjet){
   if (findByNom(chefProjet.getNom()) != null) {
    return -1;
@@ -27,6 +37,7 @@ public class ChefProjetService {
    chefProjetDao.save(chefProjet);
    return 1;
   }
+
  }
 
 

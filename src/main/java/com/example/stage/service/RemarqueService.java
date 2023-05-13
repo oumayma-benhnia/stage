@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RemarqueService {
@@ -31,5 +32,13 @@ public class RemarqueService {
             remarqueDao.save(remarque);
             return 1;
         }
+    }
+
+    public Optional<Remarque> findById(Long id) {
+        return remarqueDao.findById(id);
+    }
+
+    public void deleteById(Long id) {
+        remarqueDao.deleteById(id);
     }
 }
