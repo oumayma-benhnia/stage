@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/facture")
@@ -28,5 +29,12 @@ public class FactureWs {
     public int save(@RequestBody Facture facture) {
         return factureService.save(facture);
     }
-
+    @GetMapping("/id/{id}")
+    public Optional<Facture> findById( @PathVariable Long id) {
+        return factureService.findById(id);
+    }
+    @DeleteMapping("/id/{id}")
+    public void deleteById(Long id) {
+        factureService.deleteById(id);
+    }
 }

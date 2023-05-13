@@ -46,4 +46,5 @@ public class RessourceWs {
     public void deleteById(@PathVariable Long id) {
         ressourceService.deleteById(id);
     }
+
 }

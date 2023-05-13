@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/projet")
@@ -29,5 +30,13 @@ public class ProjetWs {
     public int save(@RequestBody Projet projet) {
         return projetService.save(projet);
     }
+    @GetMapping("/id/{id}")
 
+    public Optional<Projet> findById( @PathVariable Long id) {
+        return projetService.findById(id);
+    }
+    @DeleteMapping("/id/{id}")
+    public void deleteById(Long id) {
+        projetService.deleteById(id);
+    }
 }

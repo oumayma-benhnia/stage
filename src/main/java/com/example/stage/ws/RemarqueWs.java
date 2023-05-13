@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/remarque")
@@ -28,5 +29,13 @@ public class RemarqueWs {
     @PostMapping("/")
     public int save(@RequestBody Remarque remarque) {
         return remarqueService.save(remarque);
+    }
+    @GetMapping("/id/{id}")
+    public Optional<Remarque> findById( @PathVariable Long id) {
+        return remarqueService.findById(id);
+    }
+    @DeleteMapping("/id/{id}")
+    public void deleteById(Long id) {
+        remarqueService.deleteById(id);
     }
 }
