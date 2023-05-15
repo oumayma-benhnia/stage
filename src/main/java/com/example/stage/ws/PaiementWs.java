@@ -12,7 +12,7 @@ import java.util.Optional;
 @RequestMapping("/api/v1/paiement")
 public class PaiementWs {
     private PaiementService paiementService;
-    @GetMapping("/facture/facture}")
+    @GetMapping("/facture/{facture}")
     public Paiement findByFacture(@RequestBody Facture facture) {
         return paiementService.findByFacture(facture);
     }
