@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/client")
@@ -28,5 +29,13 @@ public class ClientWs {
     @PostMapping("/")
     public int save(@RequestBody Client client) {
         return clientService.save(client);
+    }
+    @GetMapping("/id/{id}")
+    public Optional<Client> findById( @PathVariable Long id) {
+        return clientService.findById(id);
+    }
+    @DeleteMapping("/id/{id}")
+    public void deleteById( @PathVariable Long id) {
+        clientService.deleteById(id);
     }
 }

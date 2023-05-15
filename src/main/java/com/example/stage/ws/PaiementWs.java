@@ -6,6 +6,7 @@ import com.example.stage.service.PaiementService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/paiement")
@@ -26,5 +27,13 @@ public class PaiementWs {
     @PostMapping("/")
     public int save(@RequestBody Paiement paiement) {
         return paiementService.save(paiement);
+    }
+    @GetMapping("/id/{id}")
+    public Optional<Paiement> findById( @PathVariable Long id) {
+        return paiementService.findById(id);
+    }
+    @DeleteMapping("/id/{id}")
+    public void deleteById( @PathVariable Long id) {
+        paiementService.deleteById(id);
     }
 }
