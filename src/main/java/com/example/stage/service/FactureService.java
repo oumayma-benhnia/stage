@@ -1,6 +1,7 @@
 package com.example.stage.service;
 
 import com.example.stage.bean.Facture;
+import com.example.stage.bean.Paiement;
 import com.example.stage.dao.FactureDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,21 @@ public class FactureService {
 
     public void deleteById(Long id) {
         factureDao.deleteById(id);
+    }
+
+    public double calculerMontantTotal(Facture facture) {
+        return facture.getMontant();
+    }
+
+    public double calculerMontantRestant(Facture facture) {
+        double montantTotal = facture.getMontant();
+        double montantPaye = 0.0;
+
+        for (Paiement paiement : facture.getPaiements()) {
+            montantPaye += paiement.getMontant();
+        }
+
+        double montantRestant = montantTotal - montantPaye;
+        return montantRestant;
     }
 }

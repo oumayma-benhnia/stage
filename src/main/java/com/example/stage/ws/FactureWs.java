@@ -3,6 +3,7 @@ package com.example.stage.ws;
 import com.example.stage.bean.Facture;
 import com.example.stage.service.FactureService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,4 +38,8 @@ public class FactureWs {
     public void deleteById(Long id) {
         factureService.deleteById(id);
     }
+
+
+
+
 }

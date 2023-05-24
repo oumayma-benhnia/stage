@@ -11,11 +11,19 @@ public class Paiement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String moyen ;
+    private String moyen;
     @DateTimeFormat(pattern = "dd/mm/yyyy")
-    private Date datePaiement ;
-    @ManyToOne
-    private Facture facture ;
+    private Date datePaiement;
+
+    private double montant;
+
+    public double getMontant() {
+        return montant;
+    }
+
+    public void setMontant(double montant) {
+        this.montant = montant;
+    }
 
     public Long getId() {
         return id;
@@ -40,12 +48,5 @@ public class Paiement {
     public void setDatePaiement(Date datePaiement) {
         this.datePaiement = datePaiement;
     }
-
-    public Facture getFacture() {
-        return facture;
-    }
-
-    public void setFacture(Facture facture) {
-        this.facture = facture;
-    }
 }
+

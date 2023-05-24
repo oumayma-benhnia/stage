@@ -7,10 +7,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Collaborateur {
+public class Collaborateur extends Ressource{
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String code;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private String nom;
     private String prenom;
     private String email;
@@ -27,13 +39,6 @@ public class Collaborateur {
     private String titre;
     private double salaire;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNom() {
         return nom;

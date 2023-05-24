@@ -8,13 +8,14 @@ import javax.persistence.*;
 public class Ressource {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nomPrenom;
+    private String nomRessource;
     private double cout;
     private double prix;
     private String type;
     private String unite;
     @ManyToOne
     private Fournisseur fournisseur;
+
 
     public Long getId() {
         return id;
@@ -24,12 +25,12 @@ public class Ressource {
         this.id = id;
     }
 
-    public String getNomPrenom() {
-        return nomPrenom;
+    public String getNomRessource() {
+        return nomRessource;
     }
 
-    public void setNomPrenom(String nomPrenom) {
-        this.nomPrenom = nomPrenom;
+    public void setNomRessource(String nomRessource) {
+        this.nomRessource = nomRessource;
     }
 
     public double getCout() {

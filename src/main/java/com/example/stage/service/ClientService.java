@@ -3,6 +3,7 @@ package com.example.stage.service;
 import com.example.stage.bean.Client;
 import com.example.stage.dao.ClientDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -41,6 +42,9 @@ public List<Client> findAll(){
         }
 
     }
+
+
+
 
 
 }

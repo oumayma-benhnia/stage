@@ -10,8 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface PaiementDao extends JpaRepository<Paiement ,Long> {
-Paiement findByFacture(Facture facture);
-int deleteByFacture(Facture facture);
+
     Optional<Paiement> findById(Long id);
     void deleteById(Long id);
 

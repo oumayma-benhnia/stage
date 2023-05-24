@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MaterielService {
+public class MaterielService{
     @Autowired
     private MaterielDao materielDao;
 

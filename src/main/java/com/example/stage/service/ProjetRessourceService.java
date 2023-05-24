@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,12 @@ import java.util.Optional;
 public class ProjetRessourceService {
     @Autowired
     private ProjetRessourceDao projetRessourceDao;
+
+    private List<ProjetRessource> projetRessources;
+
+    public ProjetRessourceService() {
+        projetRessources = new ArrayList<>();
+    }
 
     public ProjetRessource findByProjet(Projet projet) {
         return projetRessourceDao.findByProjet(projet);
@@ -45,4 +52,34 @@ public class ProjetRessourceService {
             return 1;
         }
     }
+    public ProjetRessource getProjetRessourceById(int id) {
+        for (ProjetRessource projetRessource : projetRessources) {
+            if (projetRessource.getId() == id) {
+                return projetRessource;
+            }
+        }
+        return null;
+    }
+
+
+    public void updateProjetRessource(ProjetRessource projetRessource) {
+        for (ProjetRessource pr : projetRessources) {
+            if (pr.getId() == projetRessource.getId()) {
+                pr.setProjet(projetRessource.getProjet());
+                pr.setRessource(projetRessource.getRessource());
+                pr.setQuantite(projetRessource.getQuantite());
+                pr.setPrix(projetRessource.getPrix());
+                // Mettre à jour d'autres attributs de ProjetRessource si nécessaire
+                break;
+            }
+        }
+    }
+
+
+    public double calculerMontantTotal(ProjetRessource projetRessource) {
+        double quantite = Double.parseDouble(projetRessource.getQuantite());
+        double prix = projetRessource.getPrix();
+        return quantite * prix;
+    }
+
 }
